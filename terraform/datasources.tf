@@ -53,6 +53,17 @@ data "terraform_remote_state" "vpctunnel" {
   }
 }
 
+data "terraform_remote_state" "pgadmin" {
+  backend = "s3"
+  workspace=var.accountname
+  config = {
+    bucket = "aws-hungry-infrastructure-terraform"
+    key    = "internal/pgadmin"
+    region = "eu-west-1"
+    role_arn = var.terraform_backend_s3_role_arn
+  }
+}
+
 data "aws_route53_zone" "aws_dot_hungrycloud_dot_net" {
   name         = var.lookup_route53_hosted_zone_sulten_dot_net
 }
