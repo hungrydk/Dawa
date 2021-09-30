@@ -8,6 +8,6 @@ terraform {
     key    = "services/dawa"
     dynamodb_table = "aws-hungry-infrastructure-terraform"
     region = "eu-west-1"
-    role_arn = var.terraform_backend_s3_role_arn
+    role_arn = "<THIS WILL BE REPLACED VIA terraform init -reconfigure -backend-config=role_arn=$terraform_backend_s3_role_arn>"
   }
 }
