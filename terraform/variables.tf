@@ -43,6 +43,14 @@ variable "ecs_service_health_check_grace_period_seconds"{}
 variable "task_definition_cpu"{}
 variable "task_definition_memory"{}
 
+# RDS
+variable "rds_backup_retention_period" {}
+variable "rds_skip_final_snapshot" {}
+variable "rds_scaling_seconds_until_auto_pause" {}
+variable "rds_scaling_auto_pause" {}
+variable "rds_scaling_min_capacity" {}
+variable "rds_scaling_max_capacity" {}
+
 # Locals
 
 locals {

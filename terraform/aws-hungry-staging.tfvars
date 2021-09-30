@@ -26,5 +26,13 @@ ecs_service_deployment_minimum_healthy_percent=100
 ecs_service_deployment_maximum_percent=200
 ecs_service_health_check_grace_period_seconds=10
 
+# RDS
+rds_skip_final_snapshot=true
+rds_backup_retention_period=4
+rds_scaling_auto_pause=true
+rds_scaling_seconds_until_auto_pause=300
+rds_scaling_min_capacity=2
+rds_scaling_max_capacity=4
+
 task_definition_cpu=1024
 task_definition_memory=2048
