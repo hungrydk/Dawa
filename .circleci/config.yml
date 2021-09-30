@@ -142,7 +142,7 @@ jobs:
           name: Init Terraform
           command: |
             cd terraform
-            terraform init -input=false
+            terraform init -input=false -reconfigure -backend-config="role_arn=$terraform_backend_s3_role_arn"
             terraform validate
             terraform workspace new aws-hungry-staging || true
             terraform workspace new aws-hungry-production || true
