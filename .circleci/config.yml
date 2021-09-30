@@ -163,7 +163,7 @@ jobs:
           name: Init Terraform
           command: |
             cd terraform
-            terraform init -input=false -reconfigure -backend-config="role_arn=$terraform_backend_s3_role_arn"
+            terraform init -input=false -reconfigure -backend-config="role_arn=$TERRAFORM_BACKEND_S3_ROLE_ARN"
             terraform validate
             terraform workspace new aws-hungry-staging || true
             terraform workspace new aws-hungry-production || true
@@ -181,7 +181,7 @@ jobs:
           name: Init Terraform
           command: |
             cd terraform_registry
-            terraform init -input=false -reconfigure -backend-config="role_arn=$terraform_backend_s3_role_arn"
+            terraform init -input=false -reconfigure -backend-config="role_arn=$TERRAFORM_BACKEND_S3_ROLE_ARN"
             terraform validate
             terraform workspace new aws-hungry-internal || true
       - persist_to_workspace:

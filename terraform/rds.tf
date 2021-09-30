@@ -5,7 +5,7 @@ resource "random_password" "rds_master" {
 }
 
 resource "aws_rds_cluster" "main" {
-  cluster_identifier = lower("${var.environment_short}-${var.servicename}")
+  cluster_identifier = lower(local.full_name)
   engine             = "aurora-postgresql"
   engine_mode        = "serverless"
   engine_version                  = "13.3"
@@ -20,7 +20,7 @@ resource "aws_rds_cluster" "main" {
   apply_immediately               = true
   db_subnet_group_name            = aws_db_subnet_group.main.id
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.main.id
-  final_snapshot_identifier = lower("${var.environment_short}-${var.servicename}-final")
+  final_snapshot_identifier = lower("${local.full_name}-final")
   skip_final_snapshot = var.rds_skip_final_snapshot
 
   ## Investigate IAM Authentication at a later point
@@ -37,7 +37,7 @@ resource "aws_rds_cluster" "main" {
 }
 
 resource "aws_db_subnet_group" "main" {
-  name = lower("${var.environment_short}-${var.servicename}")
+  name = lower(local.full_name)
   subnet_ids = [
     data.terraform_remote_state.vpc.outputs.aws_subnet_private_a.id,
     data.terraform_remote_state.vpc.outputs.aws_subnet_private_b.id,
@@ -46,8 +46,8 @@ resource "aws_db_subnet_group" "main" {
 }
 
 resource "aws_rds_cluster_parameter_group" "main" {
-  name = lower("${var.environment_short}-${var.servicename}")
+  name = lower(local.full_name)
   family      = "aurora-postgresql10"
-  description = "Parameter Group for ${var.environment_short}-${var.servicename}"
+  description = "Parameter Group for ${local.full_name}"
 
 }

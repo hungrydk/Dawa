@@ -5,7 +5,7 @@ data "terraform_remote_state" "loadbalancer" {
     bucket = "aws-hungry-infrastructure-terraform"
     key    = "common/ec2/loadbalancer"
     region = "eu-west-1"
-    role_arn = "arn:aws:iam::${var.aws_account_id_infrastructure}:role/aws-hungry-infrastructure-terraform-role"
+    role_arn = var.terraform_backend_s3_role_arn
   }
 }
 
@@ -16,7 +16,7 @@ data "terraform_remote_state" "ecs" {
     bucket = "aws-hungry-infrastructure-terraform"
     key    = "common/ecs/clustersetup"
     region = "eu-west-1"
-    role_arn = "arn:aws:iam::${var.aws_account_id_infrastructure}:role/aws-hungry-infrastructure-terraform-role"
+    role_arn = var.terraform_backend_s3_role_arn
   }
 }
 
@@ -27,7 +27,7 @@ data "terraform_remote_state" "vpc" {
     bucket = "aws-hungry-infrastructure-terraform"
     key    = "common/vpc/mainsetup"
     region = "eu-west-1"
-    role_arn = "arn:aws:iam::${var.aws_account_id_infrastructure}:role/aws-hungry-infrastructure-terraform-role"
+    role_arn = var.terraform_backend_s3_role_arn
   }
 }
 
@@ -38,7 +38,7 @@ data "terraform_remote_state" "registry" {
     bucket = "aws-hungry-infrastructure-terraform"
     key    = "registry/dawa"
     region = "eu-west-1"
-    role_arn = "arn:aws:iam::${var.aws_account_id_infrastructure}:role/aws-hungry-infrastructure-terraform-role"
+    role_arn = var.terraform_backend_s3_role_arn
   }
 }
 
@@ -49,7 +49,7 @@ data "terraform_remote_state" "vpctunnel" {
     bucket = "aws-hungry-infrastructure-terraform"
     key    = "common/ec2/vpctunnel"
     region = "eu-west-1"
-    role_arn = "arn:aws:iam::${var.aws_account_id_infrastructure}:role/aws-hungry-infrastructure-terraform-role"
+    role_arn = var.terraform_backend_s3_role_arn
   }
 }
 
