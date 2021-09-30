@@ -8,7 +8,7 @@ resource "aws_rds_cluster" "main" {
   cluster_identifier = lower(local.full_name)
   engine             = "aurora-postgresql"
   engine_mode        = "serverless"
-  engine_version                  = "10.4"
+  engine_version                  = "10.14" # At the time of implementing this, only 10.12 and 10.14 are supported for "aurora-postgresql" in "serverless" mode
   master_username                 = "postgres"
   master_password                 = random_password.rds_master.result
   availability_zones              = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
