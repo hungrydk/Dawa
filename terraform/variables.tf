@@ -4,8 +4,7 @@ variable "environment" { default = "" }
 variable "environment_short" { default = "" }
 
 # Datasource
-variable "lookup_route53_hosted_zone_sulten_dot_net" {}
-variable "datasource_lookup_api_gateway_api" {}
+variable "lookup_route53_hosted_zone_aws_dot_hungrycloud_dot_net" {}
 variable "datasource_lookup_cloudwatch_alarm_to_slack" {}
 
 # Service

@@ -65,16 +65,12 @@ data "terraform_remote_state" "pgadmin" {
 }
 
 data "aws_route53_zone" "aws_dot_hungrycloud_dot_net" {
-  name         = var.lookup_route53_hosted_zone_sulten_dot_net
+  name         = var.lookup_route53_hosted_zone_aws_dot_hungrycloud_dot_net
 }
 
 data "aws_caller_identity" "current" {}
 
 data "aws_region" "current" {}
-
-data "aws_api_gateway_rest_api" "api" {
-  name = var.datasource_lookup_api_gateway_api
-}
 
 data "aws_sns_topic" "cloudwatch_alarm_to_slack" {
   name = var.datasource_lookup_cloudwatch_alarm_to_slack

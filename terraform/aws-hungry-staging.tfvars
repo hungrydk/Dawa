@@ -6,7 +6,7 @@ environment_short="Staging"
 service_url="dawa.staging.aws.hungrycloud.net"
 
 # Datasource
-lookup_route53_hosted_zone_sulten_dot_net="staging.aws.hungrycloud.net."
+lookup_route53_hosted_zone_aws_dot_hungrycloud_dot_net="staging.aws.hungrycloud.net."
 datasource_lookup_cloudwatch_alarm_to_slack="Staging-CloudWatchAlarmToSlack"
 
 # ALB
