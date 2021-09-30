@@ -73,27 +73,3 @@ resource "aws_iam_user" "task_user" {
 resource "aws_iam_access_key" "task_user" {
   user = aws_iam_user.task_user.name
 }
-
-resource "aws_iam_user_policy" "s3" {
-  name = "allow_s3_interaction"
-  user = aws_iam_user.task_user.name
-
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "",
-            "Effect": "Allow",
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::${var.s3_bucket_name_assets}/*",
-                "arn:aws:s3:::${var.s3_bucket_name_assets}"
-            ]
-        }
-    ]
-}
-EOF
-}

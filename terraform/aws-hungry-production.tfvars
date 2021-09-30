@@ -28,6 +28,3 @@ ecs_service_health_check_grace_period_seconds=10
 
 task_definition_cpu=1024
 task_definition_memory=2048
-
-# S3
-s3_bucket_name_assets = "prod-assets-hungrygroup"
